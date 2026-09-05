@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  /* Hemta custom tokens (docs/03-design-system.md) */
+  --color-faint: var(--faint);
+  --color-window: var(--window);
+  --color-window-surface: var(--window-surface);
+  --color-window-border: var(--window-border);
+  --color-window-text: var(--window-text);
+  --color-window-muted: var(--window-muted);
+  --color-done: var(--done);
+  --color-wait: var(--wait);
+  --color-fail: var(--fail);
+  --shadow-window: 0 1px 2px rgb(22 24 29 / 0.05), 0 12px 32px rgb(22 24 29 / 0.1);
+  --shadow-cta: 0 1px 2px rgb(33 68 223 / 0.25);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Light theme, locked page-wide. Radius rule: controls 10px (lg), cards/windows 14px (xl), chips pill. */
+  --background: #fafafb;
+  --foreground: #16181d;
+  --card: #ffffff;
+  --card-foreground: #16181d;
+  --popover: #ffffff;
+  --popover-foreground: #16181d;
+  --primary: #2144df;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f2f4;
+  --secondary-foreground: #16181d;
+  --muted: #f1f2f4;
+  --muted-foreground: #5a5f6a;
+  --accent: #edf0fe;
+  --accent-foreground: #1a37be;
+  --destructive: #d53535;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #2144df;
+  --radius: 0.625rem;
+  --faint: #8b909b;
+  --window: #101114;
+  --window-surface: #17181c;
+  --window-border: #2a2c31;
+  --window-text: #f4f5f7;
+  --window-muted: #9da2ac;
+  --done: #1d9a4e;
+  --wait: #c97a0a;
+  --fail: #d53535;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth font-sans;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}

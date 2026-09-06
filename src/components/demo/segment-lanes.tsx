@@ -73,7 +73,7 @@ export function SegmentLanes() {
   return (
     <div
       ref={ref}
-      className="rounded-xl border border-border bg-card p-6 shadow-window md:p-8"
+      className="rounded-[1.25rem] border border-border bg-card p-6 md:p-8"
     >
       <div className="flex items-baseline justify-between gap-4">
         <span className="font-mono text-xs font-medium tracking-wide text-muted-foreground uppercase">

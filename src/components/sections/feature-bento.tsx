@@ -8,6 +8,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
+import { SplitHeading } from "@/components/motion/split-heading";
 import { StateChip } from "@/components/demo/download-row";
 import { features } from "@/content/site";
 
@@ -45,18 +46,16 @@ export function FeatureBento() {
   return (
     <section id="features" aria-labelledby="features-heading" className="scroll-mt-16 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <Reveal>
-          <h2
-            id="features-heading"
-            className="text-3xl font-semibold tracking-[-0.02em] text-balance md:text-5xl"
-          >
-            {features.heading}
-          </h2>
-        </Reveal>
+        <SplitHeading
+          id="features-heading"
+          className="text-3xl font-semibold tracking-[-0.02em] text-balance md:text-5xl"
+        >
+          {features.heading}
+        </SplitHeading>
 
         <Reveal stagger className="mt-12 grid gap-4 md:grid-cols-3">
           {/* Queue: large cell with a mini live-list preview */}
-          <div className="rounded-xl border border-border bg-card p-6 md:col-span-2">
+          <div className="rounded-2xl border border-border bg-card p-6 transition-[transform,border-color,box-shadow] duration-500 ease-[var(--ease-fluid)] hover:-translate-y-1 hover:border-foreground/15 hover:shadow-float md:col-span-2">
             <CellHeading title={queue.title} body={queue.body} />
             <div aria-hidden className="mt-5 overflow-hidden rounded-lg border border-window-border bg-window">
               {[
@@ -84,7 +83,7 @@ export function FeatureBento() {
           </div>
 
           {/* Bandwidth: tinted cell with a cap readout */}
-          <div className="rounded-xl border border-border bg-accent p-6">
+          <div className="rounded-2xl border border-border bg-accent p-6 transition-[transform,border-color,box-shadow] duration-500 ease-[var(--ease-fluid)] hover:-translate-y-1 hover:border-primary/25 hover:shadow-float">
             <CellHeading title={bandwidth.title} body={bandwidth.body} />
             <div aria-hidden className="mt-5 rounded-lg border border-border bg-card p-4">
               <div className="flex items-baseline justify-between font-mono text-xs tabular-nums">
@@ -104,13 +103,13 @@ export function FeatureBento() {
           </div>
 
           {[categories, search, inspector].map((item) => (
-            <div key={item.title} className="rounded-xl border border-border bg-card p-6">
+            <div key={item.title} className="rounded-2xl border border-border bg-card p-6 transition-[transform,border-color,box-shadow] duration-500 ease-[var(--ease-fluid)] hover:-translate-y-1 hover:border-foreground/15 hover:shadow-float">
               <CellHeading title={item.title} body={item.body} />
             </div>
           ))}
 
           {/* Scheduling: full-width strip */}
-          <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6 md:col-span-3 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 transition-[transform,border-color,box-shadow] duration-500 ease-[var(--ease-fluid)] hover:-translate-y-1 hover:border-foreground/15 hover:shadow-float md:col-span-3 md:flex-row md:items-center md:justify-between">
             <CellHeading title={scheduling.title} body={scheduling.body} />
             <div aria-hidden className="flex items-center gap-3 rounded-lg border border-border bg-muted px-4 py-3 font-mono text-xs tabular-nums text-muted-foreground">
               <CalendarClock strokeWidth={1.75} className="size-4 text-primary" />

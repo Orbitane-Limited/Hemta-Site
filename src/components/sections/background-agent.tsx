@@ -1,20 +1,22 @@
 import { Check, ArrowDown } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
+import { SplitHeading } from "@/components/motion/split-heading";
 import { AppWindow } from "@/components/demo/app-window";
 import { DownloadRow } from "@/components/demo/download-row";
 import { agent } from "@/content/site";
 
 export function BackgroundAgent() {
   return (
-    <section aria-labelledby="agent-heading" className="py-24 md:py-32">
+    <section aria-labelledby="agent-heading" className="py-24 md:py-36">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
-        <Reveal>
-          <h2
+        <div>
+          <SplitHeading
             id="agent-heading"
             className="text-3xl font-semibold tracking-[-0.02em] text-balance md:text-5xl"
           >
             {agent.heading}
-          </h2>
+          </SplitHeading>
+          <Reveal>
           <p className="mt-4 max-w-[52ch] text-base text-muted-foreground md:text-lg">
             {agent.sub}
           </p>
@@ -28,7 +30,8 @@ export function BackgroundAgent() {
               </li>
             ))}
           </ul>
-        </Reveal>
+          </Reveal>
+        </div>
 
         <Reveal className="relative lg:order-first">
           {/* Menu bar glimpse: downloads persist outside the window */}
@@ -42,21 +45,23 @@ export function BackgroundAgent() {
             </span>
             <span className="font-mono text-[11px] tabular-nums text-window-muted">2 active</span>
           </div>
-          <AppWindow title="Hemta" className="opacity-90">
-            <DownloadRow
-              name="Logic-Sample-Library.pkg"
-              size="12.6 GB"
-              state="downloading"
-              progress={0.45}
-              speed="36.9 MB/s"
-            />
-            <DownloadRow
-              name="Keynote-Assets-Q3.zip"
-              size="840 MB"
-              state="completed"
-              progress={1}
-            />
-          </AppWindow>
+          <div className="rounded-[1.75rem] bg-foreground/[0.045] p-2 shadow-float ring-1 ring-foreground/[0.06]">
+            <AppWindow title="Hemta" className="rounded-[1.25rem] shadow-none">
+              <DownloadRow
+                name="Logic-Sample-Library.pkg"
+                size="12.6 GB"
+                state="downloading"
+                progress={0.45}
+                speed="36.9 MB/s"
+              />
+              <DownloadRow
+                name="Keynote-Assets-Q3.zip"
+                size="840 MB"
+                state="completed"
+                progress={1}
+              />
+            </AppWindow>
+          </div>
           <p className="mt-4 text-center text-sm text-faint lg:text-left">
             The window is optional. The agent is not.
           </p>

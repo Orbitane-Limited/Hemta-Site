@@ -53,13 +53,13 @@ mindmap
 
 ## 2. Page tree (V1)
 
-| Route | Purpose | V1 status |
+| Route | Purpose | Status |
 |---|---|---|
-| `/` | The landing page. Everything below lives here. | Build now |
-| `/privacy` | Privacy policy. Reinforces the zero-telemetry claim with an actual document. | Stub now, real copy before launch |
-| `/changelog`, `/support` | Post-launch. Nav/footer links appear only when pages exist. | Not in V1 |
-
-Single-page V1 is deliberate: one conversion goal (Download for macOS), one scroll narrative.
+| `/` | The story: hero, recovery scrolltelling, speed, browsers, agent, bento, FAQ, dark finale (privacy, marquee, CTA) | Built |
+| `/features` | Deep dive: acceleration, recovery engine, queue & categories, search & inspector, bandwidth & scheduling, trust | Built |
+| `/download` | Conversion page: CTA, install steps, requirements | Built (real dmg link pending) |
+| `/privacy` | Privacy manifesto in plain words; legal policy text pending | Built |
+| `/changelog`, `/support` | Post-launch. Nav/footer links appear only when pages exist. | Not yet |
 
 ## 3. Section-by-section plan
 

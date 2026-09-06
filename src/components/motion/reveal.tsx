@@ -9,13 +9,22 @@ type RevealProps = {
   /** Animate direct children with a stagger instead of the wrapper itself. */
   stagger?: boolean;
   delay?: number;
-};
+  /** Play on mount (hero/page headers) instead of on scroll into view. */
+  immediate?: boolean;
+} & React.HTMLAttributes<HTMLDivElement>;
 
 /**
  * Standard in-view reveal (docs/04 §3): opacity 0->1, y 20->0, 0.6s power3.out,
  * fires once at "top 75%". Under prefers-reduced-motion nothing animates.
  */
-export function Reveal({ children, className, stagger = false, delay = 0 }: RevealProps) {
+export function Reveal({
+  children,
+  className,
+  stagger = false,
+  delay = 0,
+  immediate = false,
+  ...rest
+}: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -31,7 +40,9 @@ export function Reveal({ children, className, stagger = false, delay = 0 }: Reve
           ease: "power3.out",
           stagger: stagger ? 0.07 : 0,
           delay,
-          scrollTrigger: { trigger: el, start: "top 75%", once: true },
+          ...(immediate
+            ? {}
+            : { scrollTrigger: { trigger: el, start: "top 85%", once: true } }),
         });
       });
     },
@@ -39,7 +50,7 @@ export function Reveal({ children, className, stagger = false, delay = 0 }: Reve
   );
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={className} {...rest}>
       {children}
     </div>
   );

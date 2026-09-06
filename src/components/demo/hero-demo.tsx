@@ -48,9 +48,6 @@ export function HeroDemo() {
           },
         });
         tick.to(speedEl, { opacity: 1, duration: 0.15 });
-
-        // Window entrance: one gentle rise after the headline paints.
-        gsap.from(el, { opacity: 0, y: 24, duration: 0.8, ease: "power3.out", delay: 0.15 });
       });
     },
     { scope: ref },
@@ -58,7 +55,7 @@ export function HeroDemo() {
 
   return (
     <div ref={ref}>
-      <AppWindow title={heroDemo.windowTitle}>
+      <AppWindow title={heroDemo.windowTitle} className="rounded-[1.25rem] shadow-none">
         {heroDemo.rows.map((row) => (
           <DownloadRow
             key={row.id}

@@ -12,17 +12,18 @@ export const site = {
 
 export const nav = {
   links: [
-    { label: "Features", href: "#features" },
-    { label: "How it works", href: "#how" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Features", href: "/features" },
+    { label: "How it works", href: "/#how" },
+    { label: "FAQ", href: "/#faq" },
   ],
-  cta: { label: "Download", href: "#download" },
+  cta: { label: "Download", href: "/download" },
 } as const;
 
 export const hero = {
-  headline: "Downloads that finish.",
+  headline: "Downloads that",
+  headlineAccent: "finish.",
   sub: "Hemta captures downloads from your browser, accelerates them, and recovers them through network drops, sleep, and restarts.",
-  cta: { label: "Download for macOS", href: "#download" },
+  cta: { label: "Download for macOS", href: "/download" },
 } as const;
 
 // Demo values, not claims.
@@ -138,8 +139,21 @@ export const features = {
 export const privacy = {
   heading: "Hemta doesn't phone home.",
   body: "Your downloads, your history, your habits: all of it stays on your Mac. Zero telemetry. No account. Local first.",
+  facts: ["Zero telemetry", "No account", "No cloud", "Local database"],
   link: { label: "Read the privacy policy", href: "/privacy" },
 } as const;
+
+export const marqueeItems = [
+  ".dmg",
+  ".zip",
+  ".pkg",
+  ".iso",
+  ".mp4",
+  ".mkv",
+  ".dng",
+  ".pdf",
+  ".aif",
+] as const;
 
 export const faq = {
   heading: "Questions, answered honestly.",
@@ -173,8 +187,100 @@ export const faq = {
 
 export const download = {
   heading: "Ready for downloads that finish?",
+  cta: { label: "Download for macOS", href: "/download" },
+  caption: "For Mac. Nothing else.",
+} as const;
+
+export const downloadPage = {
+  heading: "Get Hemta.",
+  sub: "The first public build lands here at launch. Everything below is how it will install.",
   cta: { label: "Download for macOS", href: "#" },
   caption: "For Mac. Nothing else.",
+  steps: [
+    {
+      title: "Download the app",
+      body: "One .dmg, straight from this page. No installer wizard, no bundled extras.",
+    },
+    {
+      title: "Drag to Applications",
+      body: "The install is the macOS install: drop Hemta into your Applications folder.",
+    },
+    {
+      title: "Connect your browser",
+      body: "Add the Safari extension or approve the Chromium connector once. Downloads route to Hemta from then on.",
+    },
+  ],
+  requirements: {
+    title: "Requirements",
+    items: [
+      "Modern macOS (exact version floor published at launch)",
+      "Works with Safari, Chrome, Edge, Brave, Arc, Vivaldi, and Opera",
+      "No account, no sign-in, nothing to configure on day one",
+    ],
+  },
+} as const;
+
+export const featuresPage = {
+  heading: "Built for how downloads actually behave.",
+  sub: "Networks drop. Macs sleep. Servers stall. Every Hemta feature exists because downloads live in the real world.",
+  blocks: {
+    acceleration: {
+      title: "Segmented acceleration",
+      body: "Hemta opens multiple connections to the same file and pulls ranges in parallel, then assembles the result. When a server won't allow it, Hemta falls back to one reliable connection instead of failing.",
+    },
+    recovery: {
+      title: "Recovery engine",
+      body: "Progress is checkpointed continuously. Network drops, sleep, crashes, restarts: a download resumes from its last byte whenever the server allows, never from zero.",
+    },
+    queue: {
+      title: "Queue & categories",
+      body: "Every download lives in one ordered queue with clear states. Files sort themselves into categories as they arrive, so your Downloads folder stops being a junk drawer.",
+      categories: ["Apps", "Video", "Archives", "Documents", "Other"],
+    },
+    inspector: {
+      title: "Search, history & inspector",
+      body: "Everything Hemta has ever downloaded stays findable. Open the inspector on any item for the full story: source, destination, size, segments, retries.",
+      inspectorRows: [
+        ["Source", "cdn.example-studio.com"],
+        ["Destination", "~/Downloads/Video"],
+        ["Size", "8.2 GB"],
+        ["Segments", "5 of 5 active"],
+        ["Retries", "2 (recovered)"],
+      ],
+    },
+    control: {
+      title: "Bandwidth & scheduling",
+      body: "Cap Hemta's total speed so calls and games keep their headroom, and queue heavy downloads for hours when nobody needs the connection.",
+    },
+    trust: {
+      title: "Built like a Mac app should be",
+      body: "Sandboxed components, hardened communication between the app and its background agent, and sensitive browser data handled in memory only. Trustworthy by architecture, not by promise.",
+    },
+  },
+} as const;
+
+export const privacyPage = {
+  heading: "Privacy, in plain words.",
+  sub: "Hemta's answer to most privacy questions is that the data never exists anywhere but your Mac.",
+  principles: [
+    {
+      title: "Zero usage telemetry",
+      body: "Hemta does not record or transmit what you download, when, or how often. There is no analytics endpoint to send it to.",
+    },
+    {
+      title: "No account",
+      body: "Nothing to sign up for, so there is no profile of you to store, leak, or sell.",
+    },
+    {
+      title: "Local database",
+      body: "Your queue and history live in a local database on your Mac, readable by you and nobody else.",
+    },
+    {
+      title: "Network traffic = your downloads",
+      body: "Hemta talks to the servers you download from. That's the list.",
+    },
+  ],
+  note: "The full legal policy will be published here before launch.",
 } as const;
 
 export const footer = {
@@ -183,9 +289,10 @@ export const footer = {
     {
       title: "Product",
       links: [
-        { label: "Features", href: "#features" },
-        { label: "How it works", href: "#how" },
-        { label: "FAQ", href: "#faq" },
+        { label: "Features", href: "/features" },
+        { label: "Download", href: "/download" },
+        { label: "How it works", href: "/#how" },
+        { label: "FAQ", href: "/#faq" },
       ],
     },
     {

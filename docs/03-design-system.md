@@ -1,5 +1,7 @@
 # Hemta Site — Design System
 
+> **Elevation pass (2026-09-06), supersedes conflicting rules below:** the site moved from flat-clean to premium-atmospheric. Additions: film grain overlay (fixed, 3.5%); scroll-progress-as-download-bar motif (top bar + mono %); floating glass island nav (detached pill) with full-screen staggered mobile menu; dot-grid + cobalt wash atmospheres on hero/page headers; double-bezel shells around all showcase windows (outer tray `rounded-[1.75rem]` `bg-foreground/[0.045]` p-2 ring, inner `rounded-[1.25rem]`); SplitText masked line reveals on all display headings; magnetic button-in-button pill CTAs (nested icon orb); pointer tilt on the hero window; hover lift + border/shadow shift on all cells; ONE marquee (file formats, dark passage only). **Radius rule v2:** buttons/CTAs pill, cards 18px (`rounded-2xl`), bezel shells 28px outer / 20px inner, chips pill. **Dark finale:** one deliberate theme descent per page (rounded-t-[3rem] `bg-window` sheet) running Privacy → marquee → CTA → footer (footer is dark site-wide, with ghost wordmark). **Pages:** `/` story, `/features` deep dive, `/download` conversion, `/privacy` manifesto. Hero headline accent: "finish." in cobalt.
+
 > The visual contract. These values become `@theme` tokens in `src/app/globals.css` and are the only values components may use.
 > Derived from `01-research.md`; structure enforced by the taste-skill consistency locks (one theme, one accent, one radius rule, one icon family).
 

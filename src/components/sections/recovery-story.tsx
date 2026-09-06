@@ -5,6 +5,7 @@ import { Wifi, WifiOff, FileArchive } from "lucide-react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { recovery } from "@/content/site";
 import { StateChip } from "@/components/demo/download-row";
+import { SplitHeading } from "@/components/motion/split-heading";
 
 const TOTAL = recovery.file.totalGb;
 
@@ -106,19 +107,24 @@ export function RecoveryStory() {
       {/* Animated scene (hidden under reduced motion) */}
       <div className="flex min-h-[100dvh] flex-col items-center justify-center px-4 py-16 motion-reduce:hidden md:px-6">
         <div className="mx-auto w-full max-w-3xl text-center">
-          <h2
+          <SplitHeading
             id="recovery-heading"
             className="text-3xl font-semibold tracking-[-0.02em] text-balance md:text-5xl"
           >
             {recovery.heading}
-          </h2>
+          </SplitHeading>
           <p className="mx-auto mt-4 max-w-[52ch] text-base text-muted-foreground md:text-lg">
             {recovery.sub}
           </p>
         </div>
 
         <div className="relative mx-auto mt-12 w-full max-w-2xl">
-          <div className="rounded-xl border border-window-border bg-window p-6 shadow-window md:p-8">
+          <div
+            aria-hidden
+            className="absolute inset-x-10 top-1/2 -bottom-6 rounded-full bg-primary/20 blur-[80px]"
+          />
+          <div className="relative rounded-[1.75rem] bg-foreground/[0.045] p-2 ring-1 ring-foreground/[0.06]">
+          <div className="rounded-[1.25rem] border border-window-border bg-window p-6 md:p-8">
             <div className="flex items-center justify-between gap-4">
               <div className="flex min-w-0 items-center gap-3">
                 <FileArchive aria-hidden strokeWidth={1.75} className="size-5 shrink-0 text-window-muted" />
@@ -177,6 +183,7 @@ export function RecoveryStory() {
                 </span>
               </span>
             </div>
+          </div>
           </div>
 
           {/* The browser's version of this story */}

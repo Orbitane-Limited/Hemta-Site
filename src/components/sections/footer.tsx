@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex flex-col justify-between gap-10 border-t border-window-border pt-12 md:flex-row">
           <div>
             <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} home`}>
-              <AppIcon className="size-7" iconClassName="size-4" />
+              <AppIcon className="size-8" />
               <span className="text-[17px] font-semibold tracking-tight text-window-text">
                 {site.name}
               </span>

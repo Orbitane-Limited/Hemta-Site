@@ -63,7 +63,7 @@ export function Nav() {
             aria-label={`${site.name} home`}
             onClick={() => setOpen(false)}
           >
-            <AppIcon className="size-7" iconClassName="size-4" />
+            <AppIcon className="size-8" />
             <span className="text-[17px] font-semibold tracking-tight">{site.name}</span>
           </Link>
 

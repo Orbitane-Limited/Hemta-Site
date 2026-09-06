@@ -101,13 +101,13 @@ export function DesktopScene() {
                   </div>
                 </div>
 
-                {/* Dock (generated render, Hemta icon running at the right) */}
+                {/* Dock (generated render, Hemta knot running at the right) */}
                 <div aria-hidden className="flex justify-center pb-3">
                   <Image
                     src="/brand/dock.png"
                     alt=""
-                    width={1730}
-                    height={660}
+                    width={1960}
+                    height={560}
                     className="h-auto w-[19rem] drop-shadow-[0_10px_28px_rgba(4,8,40,0.55)] md:w-[24rem]"
                   />
                 </div>

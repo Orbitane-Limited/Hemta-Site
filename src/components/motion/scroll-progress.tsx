@@ -19,6 +19,15 @@ export function ScrollProgress() {
       const label = el.querySelector("[data-label]");
       const mm = gsap.matchMedia();
 
+      // Pinned sections add scroll height after load, so a URL hash lands
+      // short on first navigation. Re-jump once layout has settled.
+      if (window.location.hash) {
+        gsap.delayedCall(0.6, () => {
+          const target = document.querySelector(window.location.hash);
+          target?.scrollIntoView();
+        });
+      }
+
       mm.add(NO_PREF, () => {
         gsap.set(el, { autoAlpha: 1 });
         gsap.to(bar, {

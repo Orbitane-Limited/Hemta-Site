@@ -10,8 +10,14 @@ import { faq } from "@/content/site";
 
 export function Faq() {
   return (
-    <section id="faq" aria-labelledby="faq-heading" className="scroll-mt-16 py-24 md:py-32">
-      <div className="mx-auto max-w-3xl px-4 md:px-6">
+    <section
+      id="faq"
+      aria-labelledby="faq-heading"
+      className="relative scroll-mt-16 overflow-hidden py-24 md:py-32"
+    >
+      {/* Dot-grid echo of the hero: ties the page's top to its bottom */}
+      <div aria-hidden className="dot-grid absolute inset-0 opacity-60" />
+      <div className="relative mx-auto max-w-3xl px-4 md:px-6">
         <SplitHeading
           id="faq-heading"
           className="text-3xl font-semibold tracking-[-0.02em] text-balance md:text-5xl"

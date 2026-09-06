@@ -104,35 +104,67 @@ export const agent = {
   ],
 } as const;
 
-export const features = {
-  heading: "Everything a download needs.",
+export const killSwitch = {
+  heading: "Try to kill this download.",
+  sub: "Flip the Wi-Fi off and watch Hemta refuse to lose your progress. Flip it back and it continues from the same byte.",
+  file: { name: "Everything-Bundle-2026.zip", size: "9.6 GB" },
+  toggleLabel: "Wi-Fi",
+  note: "A simulation of the real recovery engine.",
+} as const;
+
+export const categories = {
+  heading: "Sorted before you look.",
+  sub: "Downloads land in the right place by type, automatically.",
+  caption: "The rules are yours to change. Hemta just applies them.",
+  tiles: [
+    { name: "Apps", count: "38 files", color: "#2E7CF6", icon: "apps" },
+    { name: "Video", count: "112 files", color: "#A550E0", icon: "video" },
+    { name: "Archives", count: "260 files", color: "#F5A623", icon: "archives" },
+    { name: "Documents", count: "473 files", color: "#2FBF62", icon: "documents" },
+    { name: "Other", count: "51 files", color: "#8B909B", icon: "other" },
+  ],
+} as const;
+
+export const useCases = {
+  heading: "Built for heavy days.",
+  sub: "If your work moves big files, Hemta is the difference between an afternoon and a retry loop.",
+  cards: [
+    {
+      title: "Video editors",
+      body: "Footage from set, stock libraries, client deliveries. Multi-gigabyte files that must arrive intact.",
+      file: { name: "RED-R3D-Interview-A.mov", size: "48 GB", state: "downloading", speed: "44.6 MB/s" },
+    },
+    {
+      title: "Developers",
+      body: "SDKs, simulators, disk images. The downloads you need before you can even start working.",
+      file: { name: "Xcode_16.4.xip", size: "3.2 GB", state: "completed", speed: "" },
+    },
+    {
+      title: "Researchers",
+      body: "Datasets from slow academic mirrors that drop connections halfway. Hemta's favorite food.",
+      file: { name: "climate-grid-2025.parquet", size: "21 GB", state: "recovering", speed: "0 MB/s" },
+    },
+  ],
+} as const;
+
+export const comparison = {
+  heading: "Your browser gives up.",
+  sub: "Same situations, different endings.",
+  columns: { bad: "Your browser", good: "Hemta" },
+  rows: [
+    { scenario: "Wi-Fi drops at 8.4 GB", bad: "Download failed", good: "Resumes at 8.4 GB" },
+    { scenario: "Your Mac goes to sleep", bad: "Start over", good: "Picks up on wake" },
+    { scenario: "The browser crashes", bad: "Download gone", good: "Hemta never noticed" },
+    { scenario: "You quit the app", bad: "Transfer stops", good: "The agent keeps going" },
+    { scenario: "The server hiccups", bad: "Network error", good: "Retries and recovers" },
+  ],
+} as const;
+
+export const stats = {
   items: [
-    {
-      title: "Queue",
-      body: "See what's downloading, what's waiting, and what's done, in one ordered list.",
-      visual: "queue",
-    },
-    {
-      title: "Bandwidth control",
-      body: "Cap Hemta's speed so calls and games keep their headroom.",
-      visual: "bandwidth",
-    },
-    {
-      title: "Categories",
-      body: "Apps, video, archives, documents. Downloads sort themselves as they arrive.",
-    },
-    {
-      title: "Search & history",
-      body: "Every download stays findable long after it finishes.",
-    },
-    {
-      title: "Inspector",
-      body: "Source, destination, size, segments, retries. The full story of any download.",
-    },
-    {
-      title: "Scheduling",
-      body: "Queue heavy downloads for overnight and let the agent run them.",
-    },
+    { value: 0, suffix: "", label: "bytes of telemetry, ever" },
+    { value: 7, suffix: "", label: "browsers captured" },
+    { value: 1, suffix: "", label: "job: finishing downloads" },
   ],
 } as const;
 
@@ -223,23 +255,51 @@ export const downloadPage = {
 export const featuresPage = {
   heading: "Built for how downloads actually behave.",
   sub: "Networks drop. Macs sleep. Servers stall. Every Hemta feature exists because downloads live in the real world.",
+  toc: [
+    { id: "acceleration", label: "Acceleration" },
+    { id: "recovery", label: "Recovery" },
+    { id: "queue", label: "Queue & categories" },
+    { id: "inspector", label: "Search & inspector" },
+    { id: "control", label: "Bandwidth & scheduling" },
+    { id: "trust", label: "Security" },
+  ],
   blocks: {
     acceleration: {
       title: "Segmented acceleration",
       body: "Hemta opens multiple connections to the same file and pulls ranges in parallel, then assembles the result. When a server won't allow it, Hemta falls back to one reliable connection instead of failing.",
+      facts: [
+        "Multiple ranged connections per file, managed by the engine",
+        "Automatic fallback to a single connection when ranges aren't supported",
+        "Segments assembled and validated locally on your Mac",
+      ],
     },
     recovery: {
       title: "Recovery engine",
       body: "Progress is checkpointed continuously. Network drops, sleep, crashes, restarts: a download resumes from its last byte whenever the server allows, never from zero.",
+      facts: [
+        "Continuous checkpointing of download state",
+        "Survives sleep and wake, app crashes, and system restarts",
+        "Automatic retries with recovery before anything is marked failed",
+      ],
     },
     queue: {
       title: "Queue & categories",
       body: "Every download lives in one ordered queue with clear states. Files sort themselves into categories as they arrive, so your Downloads folder stops being a junk drawer.",
+      facts: [
+        "One ordered queue: downloading, queued, paused, completed, failed",
+        "Concurrency and execution handled by the background agent",
+        "Category rules applied automatically as files arrive",
+      ],
       categories: ["Apps", "Video", "Archives", "Documents", "Other"],
     },
     inspector: {
       title: "Search, history & inspector",
       body: "Everything Hemta has ever downloaded stays findable. Open the inspector on any item for the full story: source, destination, size, segments, retries.",
+      facts: [
+        "Search across names, history, and categories",
+        "Per-download inspector: source, destination, size, segments, retries",
+        "Open files or reveal them in Finder from anywhere",
+      ],
       inspectorRows: [
         ["Source", "cdn.example-studio.com"],
         ["Destination", "~/Downloads/Video"],
@@ -251,10 +311,20 @@ export const featuresPage = {
     control: {
       title: "Bandwidth & scheduling",
       body: "Cap Hemta's total speed so calls and games keep their headroom, and queue heavy downloads for hours when nobody needs the connection.",
+      facts: [
+        "Global bandwidth cap with per-download visibility",
+        "Schedule heavy downloads for quiet hours; the agent runs them",
+        "Retry and backoff behavior tuned by the engine, not left to chance",
+      ],
     },
     trust: {
       title: "Built like a Mac app should be",
       body: "Sandboxed components, hardened communication between the app and its background agent, and sensitive browser data handled in memory only. Trustworthy by architecture, not by promise.",
+      facts: [
+        "Sandboxed components where the platform allows",
+        "Hardened communication between app and agent",
+        "Sensitive browser session data handled in memory only",
+      ],
     },
   },
 } as const;

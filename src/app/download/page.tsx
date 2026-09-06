@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Check } from "lucide-react";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { Reveal } from "@/components/motion/reveal";
@@ -14,17 +15,41 @@ export const metadata: Metadata = {
 export default function DownloadPage() {
   return (
     <main className="relative flex-1 overflow-hidden">
-      <div aria-hidden className="dot-grid absolute inset-0" />
-      <div
-        aria-hidden
-        className="absolute -top-32 left-1/2 h-96 w-[52rem] -translate-x-1/2 rounded-full bg-primary/[0.08] blur-[110px]"
-      />
+      {/* Light wallpaper render fading into the page background */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-[46rem]">
+        <Image
+          src="/brand/wallpaper-light.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,var(--background)_96%)]" />
+      </div>
 
       <div className="relative mx-auto max-w-5xl px-4 pt-40 pb-24 md:px-6 md:pb-32">
         <div className="text-center">
+          <Reveal immediate className="mb-8 flex justify-center">
+            <span className="relative">
+              <span
+                aria-hidden
+                className="absolute inset-0 scale-125 rounded-full bg-primary/25 blur-2xl"
+              />
+              <Image
+                src="/brand/app-icon.png"
+                alt=""
+                width={112}
+                height={112}
+                priority
+                className="relative size-24 md:size-28"
+              />
+            </span>
+          </Reveal>
           <SplitHeading
             as="h1"
             immediate
+            delay={0.15}
             className="text-6xl font-semibold tracking-[-0.03em] md:text-8xl"
           >
             {downloadPage.heading}

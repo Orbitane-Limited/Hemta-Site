@@ -5,8 +5,13 @@ import { browsers } from "@/content/site";
 
 export function Browsers() {
   return (
-    <section aria-labelledby="browsers-heading" className="py-24 md:py-32">
-      <div className="mx-auto max-w-5xl px-4 text-center md:px-6">
+    <section aria-labelledby="browsers-heading" className="relative py-24 md:py-32">
+      {/* Ice band: gentle section rhythm without a hard edge */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,#F1F4FC_22%,#F1F4FC_78%,transparent_100%)]"
+      />
+      <div className="relative mx-auto max-w-5xl px-4 text-center md:px-6">
         <SplitHeading
           id="browsers-heading"
           className="text-3xl font-semibold tracking-[-0.02em] text-balance md:text-5xl"

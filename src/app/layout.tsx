@@ -26,6 +26,13 @@ export const metadata: Metadata = {
     description: site.description,
     siteName: site.name,
     type: "website",
+    images: [{ url: "/brand/og-scene.png", width: 1730, height: 909 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+    images: ["/brand/og-scene.png"],
   },
 };
 

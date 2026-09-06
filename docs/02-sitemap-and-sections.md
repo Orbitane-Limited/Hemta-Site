@@ -55,8 +55,8 @@ mindmap
 
 | Route | Purpose | Status |
 |---|---|---|
-| `/` | The story: hero, recovery scrolltelling, speed, browsers, agent, bento, FAQ, dark finale (privacy, marquee, CTA) | Built |
-| `/features` | Deep dive: acceleration, recovery engine, queue & categories, search & inspector, bandwidth & scheduling, trust | Built |
+| `/` | The story: hero, recovery scrolltelling, kill-switch, browsers, desktop scene, sorting tree, use-cases, comparison, FAQ, dark finale (stats, privacy, marquee, CTA) | Built |
+| `/features` | The reference: acceleration (speed viz lives HERE, not on home), recovery engine, queue & categories, search & inspector, bandwidth & scheduling, trust. No duplication with home by design. | Built; sharpening pass pending |
 | `/download` | Conversion page: CTA, install steps, requirements | Built (real dmg link pending) |
 | `/privacy` | Privacy manifesto in plain words; legal policy text pending | Built |
 | `/changelog`, `/support` | Post-launch. Nav/footer links appear only when pages exist. | Not yet |

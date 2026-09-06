@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowDown } from "lucide-react";
+import { AppIcon } from "@/components/brand/app-icon";
 import { footer, site } from "@/content/site";
 
 /** Dark closer with a ghost wordmark. Continuous with the dark finale sheet on the home page. */
@@ -10,9 +10,7 @@ export function Footer() {
         <div className="flex flex-col justify-between gap-10 border-t border-window-border pt-12 md:flex-row">
           <div>
             <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} home`}>
-              <span className="flex size-7 items-center justify-center rounded-full bg-primary">
-                <ArrowDown aria-hidden strokeWidth={2.25} className="size-4 text-primary-foreground" />
-              </span>
+              <AppIcon className="size-7" iconClassName="size-4" />
               <span className="text-[17px] font-semibold tracking-tight text-window-text">
                 {site.name}
               </span>

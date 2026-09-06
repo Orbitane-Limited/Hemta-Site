@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowDown } from "lucide-react";
 import { cn } from "cn";
 import { gsap, useGSAP } from "@/lib/gsap";
+import { AppIcon } from "@/components/brand/app-icon";
 import { nav, site } from "@/content/site";
 
 /**
@@ -63,9 +63,7 @@ export function Nav() {
             aria-label={`${site.name} home`}
             onClick={() => setOpen(false)}
           >
-            <span className="flex size-7 items-center justify-center rounded-full bg-primary">
-              <ArrowDown aria-hidden strokeWidth={2.25} className="size-4 text-primary-foreground" />
-            </span>
+            <AppIcon className="size-7" iconClassName="size-4" />
             <span className="text-[17px] font-semibold tracking-tight">{site.name}</span>
           </Link>
 

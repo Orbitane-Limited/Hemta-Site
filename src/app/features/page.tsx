@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { FolderOpen, Search } from "lucide-react";
+import Image from "next/image";
+import { FolderOpen, Search, Check } from "lucide-react";
+import { cn } from "cn";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { Reveal } from "@/components/motion/reveal";
 import { CtaButton } from "@/components/motion/cta-button";
-import { SegmentLanes } from "@/components/demo/segment-lanes";
+import { AccelerationScene } from "@/components/demo/acceleration-scene";
 import { AppWindow } from "@/components/demo/app-window";
 import { DownloadRow, StateChip } from "@/components/demo/download-row";
 import { featuresPage, recovery, site } from "@/content/site";
@@ -17,6 +19,39 @@ export const metadata: Metadata = {
 const TOTAL = recovery.file.totalGb;
 const b = featuresPage.blocks;
 
+function FactList({
+  facts,
+  dark = false,
+  className,
+}: {
+  facts: readonly string[];
+  dark?: boolean;
+  className?: string;
+}) {
+  return (
+    <Reveal className={className}>
+      <ul className="mt-6 space-y-2.5">
+        {facts.map((fact) => (
+          <li
+            key={fact}
+            className={cn(
+              "flex items-start gap-2.5 text-sm",
+              dark ? "text-window-muted" : "text-muted-foreground",
+            )}
+          >
+            <Check
+              aria-hidden
+              strokeWidth={2.25}
+              className={cn("mt-0.5 size-3.5 shrink-0", dark ? "text-[#A7B6FF]" : "text-primary")}
+            />
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </Reveal>
+  );
+}
+
 export default function FeaturesPage() {
   return (
     <main className="flex-1 overflow-hidden">
@@ -27,24 +62,54 @@ export default function FeaturesPage() {
           aria-hidden
           className="absolute -top-32 left-1/2 h-96 w-[52rem] -translate-x-1/2 rounded-full bg-primary/[0.07] blur-[110px]"
         />
-        <div className="relative mx-auto max-w-7xl px-4 md:px-6">
-          <SplitHeading
-            as="h1"
-            immediate
-            className="max-w-3xl text-5xl font-semibold tracking-[-0.03em] text-balance md:text-7xl"
-          >
-            {featuresPage.heading}
-          </SplitHeading>
-          <Reveal immediate delay={0.4}>
-            <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-muted-foreground md:text-xl">
-              {featuresPage.sub}
-            </p>
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 md:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+          <div>
+            <SplitHeading
+              as="h1"
+              immediate
+              className="max-w-3xl text-5xl font-semibold tracking-[-0.03em] text-balance md:text-6xl xl:text-7xl"
+            >
+              {featuresPage.heading}
+            </SplitHeading>
+            <Reveal immediate delay={0.4}>
+              <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-muted-foreground md:text-xl">
+                {featuresPage.sub}
+              </p>
+            </Reveal>
+            <Reveal immediate delay={0.55} className="mt-8 flex flex-wrap gap-2">
+              {featuresPage.toc.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="rounded-full border border-border bg-card px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors duration-300 hover:border-foreground/20 hover:text-foreground"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </Reveal>
+          </div>
+          <Reveal immediate delay={0.3}>
+            <div className="relative">
+              <div
+                aria-hidden
+                className="absolute inset-x-8 top-1/2 -bottom-6 rounded-full bg-primary/20 blur-[90px]"
+              />
+              <Image
+                src="/brand/macbook.jpg"
+                alt=""
+                width={1536}
+                height={1024}
+                priority
+                sizes="(max-width: 1024px) 100vw, 640px"
+                className="relative rounded-2xl border border-border shadow-float"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
 
       {/* Acceleration: full-width visualization */}
-      <section aria-labelledby="f-accel" className="py-16 md:py-24">
+      <section id="acceleration" aria-labelledby="f-accel" className="scroll-mt-24 py-16 md:py-24">
         <div className="mx-auto max-w-3xl px-4 md:px-6">
           <SplitHeading id="f-accel" className="text-3xl font-semibold tracking-[-0.02em] md:text-5xl">
             {b.acceleration.title}
@@ -54,14 +119,15 @@ export default function FeaturesPage() {
               {b.acceleration.body}
             </p>
           </Reveal>
-          <Reveal className="mt-10 rounded-[1.75rem] bg-foreground/[0.035] p-2 ring-1 ring-foreground/[0.05]">
-            <SegmentLanes />
+          <FactList facts={b.acceleration.facts} />
+          <Reveal className="mt-10 rounded-[1.75rem] bg-foreground/[0.045] p-2 ring-1 ring-foreground/[0.06]">
+            <AccelerationScene />
           </Reveal>
         </div>
       </section>
 
       {/* Recovery: split with storyboard frames */}
-      <section aria-labelledby="f-recovery" className="py-16 md:py-24">
+      <section id="recovery" aria-labelledby="f-recovery" className="scroll-mt-24 py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
           <div>
             <SplitHeading id="f-recovery" className="text-3xl font-semibold tracking-[-0.02em] md:text-5xl">
@@ -72,6 +138,7 @@ export default function FeaturesPage() {
                 {b.recovery.body}
               </p>
             </Reveal>
+            <FactList facts={b.recovery.facts} />
           </div>
           <Reveal stagger className="grid gap-3">
             {(
@@ -107,27 +174,27 @@ export default function FeaturesPage() {
       </section>
 
       {/* Queue & categories: split mirrored */}
-      <section aria-labelledby="f-queue" className="py-16 md:py-24">
+      <section id="queue" aria-labelledby="f-queue" className="scroll-mt-24 py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
           <Reveal className="lg:order-first">
             <div className="rounded-[1.75rem] bg-foreground/[0.045] p-2 shadow-float ring-1 ring-foreground/[0.06]">
               <AppWindow title="Hemta" className="rounded-[1.25rem] shadow-none">
                 <DownloadRow
-                  name="4K-Drone-Footage-Master.mp4"
-                  size="8.2 GB"
+                  name="Blender-4.5-macOS.dmg"
+                  size="1.8 GB"
                   state="downloading"
                   progress={0.62}
                   speed="41.7 MB/s"
                 />
                 <DownloadRow
-                  name="Logic-Sample-Library.pkg"
-                  size="12.6 GB"
+                  name="Sample-Pack-Vol-3.zip"
+                  size="4.3 GB"
                   state="queued"
                   progress={0}
                 />
                 <DownloadRow
-                  name="Keynote-Assets-Q3.zip"
-                  size="840 MB"
+                  name="Camera-Manual-X2.pdf"
+                  size="64 MB"
                   state="completed"
                   progress={1}
                 />
@@ -154,12 +221,13 @@ export default function FeaturesPage() {
                 {b.queue.body}
               </p>
             </Reveal>
+            <FactList facts={b.queue.facts} />
           </div>
         </div>
       </section>
 
       {/* Search & inspector: full-width tinted panel */}
-      <section aria-labelledby="f-inspector" className="py-16 md:py-24">
+      <section id="inspector" aria-labelledby="f-inspector" className="scroll-mt-24 py-16 md:py-24">
         <div className="mx-auto max-w-5xl px-4 md:px-6">
           <SplitHeading id="f-inspector" className="text-3xl font-semibold tracking-[-0.02em] md:text-5xl">
             {b.inspector.title}
@@ -169,6 +237,7 @@ export default function FeaturesPage() {
               {b.inspector.body}
             </p>
           </Reveal>
+          <FactList facts={b.inspector.facts} />
           <Reveal className="mt-10 grid gap-4 md:grid-cols-[1.2fr_1fr]">
             <div aria-hidden className="rounded-2xl border border-border bg-accent p-5">
               <div className="flex items-center gap-2.5 rounded-full border border-border bg-card px-4 py-2.5">
@@ -208,7 +277,7 @@ export default function FeaturesPage() {
 
       {/* Bandwidth & scheduling + trust: dark closer */}
       <div className="mt-12 rounded-t-[3rem] bg-window">
-        <section aria-labelledby="f-control" className="py-20 md:py-28">
+        <section id="control" aria-labelledby="f-control" className="scroll-mt-24 py-20 md:py-28">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
             <div>
               <SplitHeading
@@ -222,6 +291,7 @@ export default function FeaturesPage() {
                   {b.control.body}
                 </p>
               </Reveal>
+              <FactList facts={b.control.facts} dark />
             </div>
             <Reveal aria-hidden className="rounded-2xl border border-window-border bg-window-surface p-6">
               <div className="flex items-baseline justify-between font-mono text-xs tabular-nums">
@@ -241,7 +311,7 @@ export default function FeaturesPage() {
           </div>
         </section>
 
-        <section aria-labelledby="f-trust" className="pb-24 text-center md:pb-32">
+        <section id="trust" aria-labelledby="f-trust" className="scroll-mt-24 pb-24 text-center md:pb-32">
           <div className="mx-auto max-w-3xl px-4 md:px-6">
             <SplitHeading
               id="f-trust"
@@ -254,6 +324,7 @@ export default function FeaturesPage() {
                 {b.trust.body}
               </p>
             </Reveal>
+            <FactList facts={b.trust.facts} dark className="inline-block text-left" />
             <Reveal className="mt-10 flex justify-center">
               <CtaButton href="/download" magnetic>
                 Download for macOS

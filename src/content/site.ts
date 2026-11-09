@@ -361,6 +361,7 @@ export const footer = {
       links: [
         { label: "Features", href: "/features" },
         { label: "Download", href: "/download" },
+        { label: "Changelog", href: "/changelog" },
         { label: "How it works", href: "/#how" },
         { label: "FAQ", href: "/#faq" },
       ],

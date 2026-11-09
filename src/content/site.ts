@@ -226,7 +226,7 @@ export const download = {
 export const downloadPage = {
   heading: "Get Hemta.",
   sub: "Hemta 1.0 for macOS. One download, no account, nothing to configure on day one.",
-  cta: { label: "Download for macOS", href: "https://downloads.hemta.app/Hemta-1.0.0.dmg" },
+  cta: { label: "Download for macOS", href: "https://downloads.hemta.app/Hemta-1.0.1.dmg" },
   caption: "For Mac. Nothing else.",
   steps: [
     {

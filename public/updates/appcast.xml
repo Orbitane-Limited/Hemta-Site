@@ -1,22 +1,38 @@
-<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+<?xml version="1.0" standalone="yes"?>
+<!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
---><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+-->
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Hemta</title>
+        <item>
+            <title>1.0.1</title>
+            <pubDate>Mon, 09 Nov 2026 22:41:53 +0500</pubDate>
+            <sparkle:version>561</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[# Hemta 1.0.1
+
+### Fixes
+
+- The browser extension's **Open Hemta** and **Show in Finder** buttons now work.
+]]></description>
+            <enclosure url="https://downloads.hemta.app/stable/Hemta-1.0.1.zip" length="11747894" type="application/octet-stream" sparkle:edSignature="m/yClb0DNj4AEvgR92hsZU+vjR3t0ESHwsxrJuor4aZXvfD55xaIXADesndMPZvhdP4FvESMY6qzVsoz2Dl1AQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://downloads.hemta.app/stable/Hemta561-558.delta" sparkle:deltaFrom="558" length="1152714" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977840" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="W+NbP+5YKuz/5rxNjQ/M8JZFHskMwILab1gGLx5alysvlDEQ3M7FSofwqmFCHVaqS21VLT2Nk3mt+OyK26ZICw=="/>
+            </sparkle:deltas>
+        </item>
         <item>
             <title>1.0.0</title>
             <pubDate>Mon, 09 Nov 2026 17:50:47 +0500</pubDate>
             <sparkle:version>558</sparkle:version>
             <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# Hemta 1.0.0
-
-First public release of Hemta, a download manager for macOS.
-]]></description>
-            <enclosure url="https://downloads.hemta.app/stable/Hemta-1.0.0.zip" length="11710808" type="application/octet-stream" sparkle:edSignature="vTVAjkK5YZYgldHRXnoYb2w7C44w8+SxponpRSeSivv6NZ7xXiLQOpUvtnvfD/67bB4Nin+G67hHfzQ9wJDuDA=="></enclosure>
+            <enclosure url="https://downloads.hemta.app/stable/Hemta-1.0.0.zip" length="11710808" type="application/octet-stream" sparkle:edSignature="vTVAjkK5YZYgldHRXnoYb2w7C44w8+SxponpRSeSivv6NZ7xXiLQOpUvtnvfD/67bB4Nin+G67hHfzQ9wJDuDA=="/>
         </item>
     </channel>
-</rss><!-- sparkle-signatures:
-edSignature: zFD8m1oCNMTBK6TB5nn/5VcOAeK02gD5liVVouhlIuXVwV94dxOXRVOD2QGOgxWSmhHhEz2qOV2/wttH+1QTBw==
-length: 1165
+</rss>
+<!-- sparkle-signatures:
+edSignature: INHtoSYYJLjtL4ZHLONcoOvX93XAZu1UVDsAQcAJPxRZCc4v80V0sA5WoUmFx2AvKlewklyEuoCdNIu7ffUICw==
+length: 2198
 -->

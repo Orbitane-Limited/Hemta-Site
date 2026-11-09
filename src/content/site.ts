@@ -225,8 +225,8 @@ export const download = {
 
 export const downloadPage = {
   heading: "Get Hemta.",
-  sub: "The first public build lands here at launch. Everything below is how it will install.",
-  cta: { label: "Download for macOS", href: "#" },
+  sub: "Hemta 1.0 for macOS. One download, no account, nothing to configure on day one.",
+  cta: { label: "Download for macOS", href: "https://downloads.hemta.app/Hemta-1.0.0.dmg" },
   caption: "For Mac. Nothing else.",
   steps: [
     {
@@ -239,14 +239,14 @@ export const downloadPage = {
     },
     {
       title: "Connect your browser",
-      body: "Add the Safari extension or approve the Chromium connector once. Downloads route to Hemta from then on.",
+      body: "Open Hemta once, then add the Hemta Browser Bridge extension from the Chrome Web Store. Downloads route to Hemta from then on.",
     },
   ],
   requirements: {
     title: "Requirements",
     items: [
-      "Modern macOS (exact version floor published at launch)",
-      "Works with Safari, Chrome, Edge, Brave, Arc, Vivaldi, and Opera",
+      "macOS 15 or later, on Apple silicon and Intel Macs",
+      "Browser capture works with Chrome and other Chromium browsers; Safari support is not available yet",
       "No account, no sign-in, nothing to configure on day one",
     ],
   },

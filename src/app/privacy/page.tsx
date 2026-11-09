@@ -192,12 +192,15 @@ export default function PrivacyPage() {
                 </tr>
                 <tr>
                   <td className="px-4 py-3">
-                    Our update server (<Code>updates.hemta.app</Code>), when automatic updates are
-                    enabled
+                    Our update servers (<Code>updates.hemta.app</Code> for the update list and{" "}
+                    <Code>downloads.hemta.app</Code> for the update file itself), when automatic
+                    updates are enabled
                   </td>
-                  <td className="px-4 py-3">To check whether a newer version of Hemta is available</td>
                   <td className="px-4 py-3">
-                    Your IP address and the Hemta version. The request carries no identifier,
+                    To check whether a newer version of Hemta is available, and to download it
+                  </td>
+                  <td className="px-4 py-3">
+                    Your IP address and the Hemta version. The requests carry no identifier,
                     account or download information. You can turn automatic update checks off in
                     Settings.
                   </td>
@@ -205,7 +208,7 @@ export default function PrivacyPage() {
               </tbody>
             </table>
           </div>
-          <p>That is the complete list. The extension itself makes no network connections to us.</p>
+          <p>That is the complete list. Both update hosts are run by us and are used only for updates. The extension itself makes no network connections to us.</p>
         </Section>
 
         <Section title="5. What we do not do">

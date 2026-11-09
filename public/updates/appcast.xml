@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Hemta</title>
+        <item>
+            <title>1.0.0</title>
+            <pubDate>Mon, 09 Nov 2026 17:50:47 +0500</pubDate>
+            <sparkle:version>558</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[# Hemta 1.0.0
+
+First public release of Hemta, a download manager for macOS.
+]]></description>
+            <enclosure url="https://downloads.hemta.app/stable/Hemta-1.0.0.zip" length="11710808" type="application/octet-stream" sparkle:edSignature="vTVAjkK5YZYgldHRXnoYb2w7C44w8+SxponpRSeSivv6NZ7xXiLQOpUvtnvfD/67bB4Nin+G67hHfzQ9wJDuDA=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: zFD8m1oCNMTBK6TB5nn/5VcOAeK02gD5liVVouhlIuXVwV94dxOXRVOD2QGOgxWSmhHhEz2qOV2/wttH+1QTBw==
+length: 1165
+-->

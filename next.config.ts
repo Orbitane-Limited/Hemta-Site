@@ -23,6 +23,13 @@ const nextConfig: NextConfig = {
         has: [{ type: "host", value: updatesHost }],
         headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
       },
+      {
+        // The managed-tool manifest and its detached signature (docs/RELEASING.md §18 in the app repo): a hold, a rollback
+        // or a kill-switch entry has to reach every Mac at once, so neither file is ever served stale.
+        source: "/tools/:file(manifest\\.json|manifest\\.json\\.sig)",
+        has: [{ type: "host", value: updatesHost }],
+        headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
+      },
     ];
   },
 };

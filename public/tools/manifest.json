@@ -1,0 +1,30 @@
+{
+  "schema" : 1,
+  "serial" : 2026111214,
+  "tools" : [
+    {
+      "archive" : "none",
+      "channel" : "stable",
+      "disabled" : false,
+      "executable" : "yt-dlp",
+      "minAppVersion" : "1.1.0",
+      "sha256" : "0f922c15ccc0b83eefa1c8bc9104e434318c4bf16e408e1ee93b7745a6efe0aa",
+      "size" : 37466304,
+      "tool" : "yt-dlp",
+      "url" : "https://github.com/yt-dlp/yt-dlp/releases/download/2026.10.26/yt-dlp_macos",
+      "version" : "2026.10.26"
+    },
+    {
+      "archive" : "none",
+      "channel" : "nightly",
+      "disabled" : false,
+      "executable" : "yt-dlp",
+      "minAppVersion" : "1.1.0",
+      "sha256" : "986ed6a7b6d88c8772338da35dd8798a83a503a555370adfa4ff3f542e4daaff",
+      "size" : 37478912,
+      "tool" : "yt-dlp",
+      "url" : "https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/download/2026.11.04.232659/yt-dlp_macos",
+      "version" : "2026.11.04.232659"
+    }
+  ]
+}

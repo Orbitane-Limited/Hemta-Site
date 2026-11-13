@@ -1,30 +1,56 @@
 {
   "schema" : 1,
-  "serial" : 2026111214,
+  "serial" : 2026111303,
   "tools" : [
     {
-      "archive" : "none",
+      "archive" : "zip",
       "channel" : "stable",
       "disabled" : false,
-      "executable" : "yt-dlp",
+      "executable" : "yt-dlp_macos",
       "minAppVersion" : "1.1.0",
-      "sha256" : "0f922c15ccc0b83eefa1c8bc9104e434318c4bf16e408e1ee93b7745a6efe0aa",
-      "size" : 37466304,
+      "sha256" : "20d98fa608998eff87d1d35a6e9fb65e4b874639a6cc89addc19da3becde3ef1",
+      "size" : 54165284,
       "tool" : "yt-dlp",
-      "url" : "https://github.com/yt-dlp/yt-dlp/releases/download/2026.10.26/yt-dlp_macos",
+      "url" : "https://github.com/yt-dlp/yt-dlp/releases/download/2026.10.26/yt-dlp_macos.zip",
       "version" : "2026.10.26"
     },
     {
-      "archive" : "none",
+      "archive" : "zip",
       "channel" : "nightly",
       "disabled" : false,
-      "executable" : "yt-dlp",
+      "executable" : "yt-dlp_macos",
       "minAppVersion" : "1.1.0",
-      "sha256" : "986ed6a7b6d88c8772338da35dd8798a83a503a555370adfa4ff3f542e4daaff",
-      "size" : 37478912,
+      "sha256" : "2a4971baa0729286aa0ee803fa4de688a3e164159181df38522a42e7fc592b5f",
+      "size" : 54178528,
       "tool" : "yt-dlp",
-      "url" : "https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/download/2026.11.04.232659/yt-dlp_macos",
+      "url" : "https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/download/2026.11.04.232659/yt-dlp_macos.zip",
       "version" : "2026.11.04.232659"
+    },
+    {
+      "architecture" : "arm64",
+      "archive" : "none",
+      "channel" : "stable",
+      "disabled" : false,
+      "executable" : "qjs",
+      "minAppVersion" : "1.1.0",
+      "sha256" : "91fe89916d3b0a6c01c4dc8382a99c3c1fd91ecfc214aa81ca051902bcce590d",
+      "size" : 1360336,
+      "tool" : "js-runtime",
+      "url" : "https://github.com/quickjs-ng/quickjs/releases/download/v0.18.0/qjs-darwin-arm64",
+      "version" : "0.18.0"
+    },
+    {
+      "architecture" : "x86_64",
+      "archive" : "none",
+      "channel" : "stable",
+      "disabled" : false,
+      "executable" : "qjs",
+      "minAppVersion" : "1.1.0",
+      "sha256" : "fa2c5dc78095daff566b32fab995ced12927875253b84216b91b834af2ef2b74",
+      "size" : 1223128,
+      "tool" : "js-runtime",
+      "url" : "https://github.com/quickjs-ng/quickjs/releases/download/v0.18.0/qjs-darwin-x86_64",
+      "version" : "0.18.0"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schema" : 1,
-  "serial" : 2026111309,
+  "serial" : 2026111622,
   "tools" : [
     {
       "archive" : "zip",
@@ -20,11 +20,11 @@
       "disabled" : false,
       "executable" : "yt-dlp_macos",
       "minAppVersion" : "1.1.0",
-      "sha256" : "2a4971baa0729286aa0ee803fa4de688a3e164159181df38522a42e7fc592b5f",
-      "size" : 54178528,
+      "sha256" : "713285243d77c3e28760862d18d23763f8498a0d1e84b215b8813a04d1837c64",
+      "size" : 54178689,
       "tool" : "yt-dlp",
-      "url" : "https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/download/2026.11.04.232659/yt-dlp_macos.zip",
-      "version" : "2026.11.04.232659"
+      "url" : "https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/download/2026.11.15.232800/yt-dlp_macos.zip",
+      "version" : "2026.11.15.232800"
     },
     {
       "architecture" : "arm64",
@@ -58,11 +58,11 @@
       "disabled" : false,
       "executable" : "ffmpeg",
       "minAppVersion" : "1.1.0",
-      "sha256" : "c8888cd61953fa278cdd5d8bf888b5769daab6d185337eba42a1314c0d07de5f",
-      "size" : 42594171,
+      "sha256" : "47f8fecd173bf7dc641dbd13fa8f15ea5636711377c63a3458cdeec1b74a00ff",
+      "size" : 43779696,
       "tool" : "ffmpeg",
-      "url" : "https://downloads.hemta.app/tools/ffmpeg-8.1.3-hemta1-macos.zip",
-      "version" : "8.1.3-hemta1"
+      "url" : "https://downloads.hemta.app/tools/ffmpeg-8.1.3-hemta2-macos.zip",
+      "version" : "8.1.3-hemta2"
     }
   ]
 }
